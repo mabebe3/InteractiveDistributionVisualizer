@@ -12,4 +12,5 @@ struct Pop {
 
 };
 
+//class Population
 #endif

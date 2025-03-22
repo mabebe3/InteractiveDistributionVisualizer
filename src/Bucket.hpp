@@ -5,9 +5,15 @@
 #include "Pop.hpp"
 
 struct Bucket {
-	float minValue;
-	float maxValue;
+	int minValue;
+	int maxValue;
 	std::vector<Pop> pops;
 };
 
+class Bucket {
+public:
+	Bucket();
+
+	void generateBuckets();
+};
 #endif

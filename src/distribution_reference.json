@@ -1,0 +1,10 @@
+{
+  "distribution_presets": {
+    "normal_distribution": {
+      "type": "normal"
+      //asd,
+      //"mean": 50000,
+      //"std_dev": 15000
+    }
+  }
+}
