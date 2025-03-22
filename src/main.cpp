@@ -16,6 +16,9 @@ int main()
         }
 
         window.clear();
+        sf::CircleShape c{ 100.0f };
+        c.setFillColor(sf::Color::Green);
+        window.draw(c);
         window.display();
     }
 }
