@@ -12,10 +12,11 @@ public:
 	struct dist {
 		std::vector<Bucket> buckets;
 		int totalPopulation;
+		int numBuckets;
 		int min;
 		int max;
 	};
-	Distribution(std::vector<Bucket> buckets, int popSize, int min, int max);
+	Distribution(std::vector<Bucket> buckets, int popSize, int numBuckets, int min, int max);
 	/*getDistStats();*/
 
 	/*setMin()
