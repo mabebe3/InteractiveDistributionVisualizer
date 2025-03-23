@@ -12,7 +12,7 @@ void addPop() {
 
 }
 bool removePop() {
-
+	
 }
 
 int getMin();

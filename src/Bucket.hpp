@@ -19,9 +19,9 @@ private:
 	std::vector<Pop> pops;
 
 public:
-	Bucket(int min, int max);
+	Bucket(int min, int max, std::vector<Pop> pops);
 
-	void addPop();
+	void addPop(const Pop& pop);
 	bool removePop();
 
 	int getMin();
