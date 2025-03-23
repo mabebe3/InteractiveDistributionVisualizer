@@ -1,9 +1,10 @@
-#ifdef DISTRIBUTION_HPP
+#ifndef DISTRIBUTION_HPP
 #define DISTRIBUTION_HPP
 
 #include "Pop.hpp"
 #include "Bucket.hpp"
 #include <vector>
+#include <string>
 
 
 
@@ -32,14 +33,23 @@ public:
 	setpopulation(int size);
 	deltaPopulation(int change)*/
 
-	void addPopToBucket(int bucketIndex, Pop pop);
-	void moveAPopBetweenBuckets(int sourceBucket, int targetBucket, Pop pop);
+	/*void addPopToBucket(int bucketIndex, Pop pop);
+	void moveAPopBetweenBuckets(int sourceBucket, int targetBucket, Pop pop);*/
 	//void adjustDistribution(int bucketIndex, int deltaPopulation);
 	
 	// generateDistribution(str::string distName, str::string bucketName);
+	void generateDistribution(std::string distName);
+	void generateBuckets(std::string bucketName);
+	void uniformDistribution(int popSize, int numBuckets);
+	int getNumBuckets() const;
+	int getPopSize() const;
+
+	float getStd() const;
+	float getMean() const;
 
 private:
 	dist Dist;
+	std::string disttype;
 
 };
 

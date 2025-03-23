@@ -12,5 +12,5 @@ struct Pop {
 
 };
 
-generateRandBound(int min, int max);
+int generateRandBound(int min, int max);
 #endif

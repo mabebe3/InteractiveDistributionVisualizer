@@ -1,24 +1,35 @@
 #include <SFML/Graphics.hpp>
+#include "Distribution.hpp"
+#include "Bucket.hpp"
+#include "Pop.hpp"
+#include <iostream>
+#include <fstream>
+
 
 int main()
 {
-    auto window = sf::RenderWindow(sf::VideoMode({1920u, 1080u}), "CMake SFML Project");
-    window.setFramerateLimit(144);
+    std::string distribution;
 
-    while (window.isOpen())
-    {
-        while (const std::optional event = window.pollEvent())
-        {
-            if (event->is<sf::Event::Closed>())
-            {
-                window.close();
-            }
-        }
+    std::cout << "Enter your distribution selection:";
+    std::cin >> distribution;
 
-        window.clear();
-        sf::CircleShape c{ 100.0f };
-        c.setFillColor(sf::Color::Green);
-        window.draw(c);
-        window.display();
-    }
+    std::string bucket;
+
+    std::cout << "Enter your bucket selection:";
+    std::cin >> bucket;
+
+    std::vector<Bucket> buckets;
+
+    Distribution d(buckets, 100000, 10, 0, 100000);
+    d.generateBuckets(bucket);
+    d.generateDistribution(distribution);
+    d.uniformDistribution(d.getPopSize(), d.getNumBuckets());
+
+    std::cout << "Distribution complete. \n";
+
+    std::cout << "Distribution mean: " << d.getMean();
+    std::cout << "Distribution standard deviation: " << d.getStd();
+
+    return 0;
+
 }

@@ -1,4 +1,4 @@
-#ifdef BUCKET_HPP
+#ifndef BUCKET_HPP
 #define BUCKET_HPP
 
 #include <vector>
@@ -24,11 +24,14 @@ public:
 	void addPop(const Pop& pop);
 	bool removePop();
 
-	int getMin();
-	int getMax();
-	void setFrequency();
-	int getPopCount();
+	int getMin() const;
+	int getMax() const;
+	void setFrequency(int freq);
+	int getPopCount() const;
 	std::vector<Pop>& getPops();
+
+	float getBucketSum() const;
+	float stdHelper(float popMean) const;
 };
 
 #endif
