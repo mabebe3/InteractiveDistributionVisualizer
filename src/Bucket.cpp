@@ -2,15 +2,18 @@
 #include "Pop.hpp"
 #include "Bucket.hpp"
 
-Bucket::Bucket(int min, int max) {
+Bucket::Bucket(int min, int max, std::vector<Pop> pops) {
 	minValue = min;
 	maxValue = max;
+	this->pops = pops;
 }
 
 void addPop() {
 
 }
-bool removePop();
+bool removePop() {
+
+}
 
 int getMin();
 int getMax();
