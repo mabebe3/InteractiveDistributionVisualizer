@@ -51,7 +51,7 @@ float Bucket::getBucketSum() const {
 float Bucket::stdHelper(float popMean) const {
 	float deviation = 0;
 	for (auto& pop : pops) {
-		deviation += std::pow((pop.income - popMean),2);
+		deviation += pow((pop.income - popMean),2);
 
 	}
 	return deviation;

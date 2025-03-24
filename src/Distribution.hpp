@@ -38,7 +38,7 @@ public:
 	//void adjustDistribution(int bucketIndex, int deltaPopulation);
 	
 	// generateDistribution(str::string distName, str::string bucketName);
-	void generateDistribution(std::string distName);
+	//void generateDistribution(std::string distName);
 	void generateBuckets(std::string bucketName);
 	void uniformDistribution(int popSize, int numBuckets);
 	int getNumBuckets() const;
