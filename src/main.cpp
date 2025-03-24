@@ -8,10 +8,10 @@
 
 int main()
 {
-    std::string distribution;
+    /*std::string distribution;
 
     std::cout << "Enter your distribution selection:";
-    std::cin >> distribution;
+    std::cin >> distribution;*/
 
     std::string bucket;
 
@@ -22,13 +22,13 @@ int main()
 
     Distribution d(buckets, 100000, 10, 0, 100000);
     d.generateBuckets(bucket);
-    d.generateDistribution(distribution);
+    //d.generateDistribution(distribution);
     d.uniformDistribution(d.getPopSize(), d.getNumBuckets());
 
     std::cout << "Distribution complete. \n";
 
-    std::cout << "Distribution mean: " << d.getMean();
-    std::cout << "Distribution standard deviation: " << d.getStd();
+    std::cout << "Distribution mean: " << d.getMean() << "\n";
+    std::cout << "Distribution standard deviation: " << d.getStd() << "\n";
 
     return 0;
 

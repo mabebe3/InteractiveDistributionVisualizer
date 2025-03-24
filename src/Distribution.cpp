@@ -8,10 +8,6 @@
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
 
-//std::vector<Bucket> buckets;
-//std::string disttype;
-//int numBuckets;
-
 Distribution::Distribution( std::vector<Bucket> buckets , int popSize, int numBuckets, int min, int max) {
 
 	Dist.buckets = buckets;
@@ -25,23 +21,14 @@ Distribution::Distribution( std::vector<Bucket> buckets , int popSize, int numBu
 void Distribution::generateBuckets(std::string bucketName) {
 
 //bucket reference
-	std::ifstream file("C:\Personal Projects\Code\InteractiveDistributionVisualizer\src\bucket_reference.json");
+	std::ifstream bucketfile("../../../../src/bucket_reference.json");
 	
-	if (FILE* file = fopen("C:\Personal Projects\Code\InteractiveDistributionVisualizer\src\bucket_reference.json", "r")) {
-		fclose(file);
-		std::cout << "File exists\n";
-	}
-	else {
-		std::cout << "File does NOT exist\n";
-	}
-
-
-	if (!file.is_open()) {
+	if (!bucketfile.is_open()) {
 		std::cerr << "Could not open the file!" << std::endl;
 		return;
 	}
 
-	json jbucket = json::parse(file);
+	json jbucket = json::parse(bucketfile);
 
 	if (jbucket.contains("bucket_presets") && jbucket["bucket_presets"].contains(bucketName)) {
 		
@@ -67,39 +54,31 @@ void Distribution::generateBuckets(std::string bucketName) {
 	}
 }
 
-void Distribution::generateDistribution(std::string distName) {
-	//distribution reference
-	std::ifstream file("C:\Personal Projects\Code\InteractiveDistributionVisualizer\src\distribution_reference.json");
-
-	if (FILE* file = fopen("C:\Personal Projects\Code\InteractiveDistributionVisualizer\src\bucket_reference.json", "r")) {
-		fclose(file);
-		std::cout << "File exists\n";
-	}
-	else {
-		std::cout << "File does NOT exist\n";
-	}
-
-	if (!file.is_open()) {
-		std::cerr << "Could not open the file!" << std::endl;
-		return;
-	}
-
-	json jdist = json::parse(file);
-
-	if (jdist.contains("distribution_presets") && jdist["distribution_presets"].contains(distName)) {
-
-		const auto& dist = jdist["distribution_presets"][distName];
-
-		std::cout << "distribution:\n";
-		disttype = dist["type"];
-		std::cout << disttype << "\n" << std::endl;
-		
-	}
-	else {
-		std::cout << "\"normal_distribution\" not found in JSON,\n";
-	}
-	
-}
+//void Distribution::generateDistribution(std::string distName) {
+//	//distribution reference
+//	std::ifstream distfile("../../../../src/distribution_reference.json");
+//
+//	if (!distfile.is_open()) {
+//		std::cerr << "Could not open the file!" << std::endl;
+//		return;
+//	}
+//
+//	json jdist = json::parse(distfile);
+//
+//	if (jdist.contains("distribution_presets") && jdist["distribution_presets"].contains(distName)) {
+//
+//		const auto& dist = jdist["distribution_presets"][distName];
+//
+//		std::cout << "distribution:\n";
+//		disttype = dist["type"];
+//		std::cout << disttype << "\n" << std::endl;
+//		
+//	}
+//	else {
+//		std::cout << "\"normal_distribution\" not found in JSON,\n";
+//	}
+//	
+//}
 
 void Distribution::uniformDistribution(int popSize, int numBuckets) {
 	if (Dist.numBuckets == 0) return;
